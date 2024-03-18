@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TowerMenu.uss?fileID=7433441132597879392&amp;guid=db2234d40715d544f8865e3c16214618&amp;type=3#TowerMenu" />
+    <ui:VisualElement class="optiebalk" style="flex-grow: 1;">
+        <ui:VisualElement class="knoppenlijst">
+            <ui:Button text="Archer-Tower" parse-escape-sequences="true" display-tooltip-when-elided="true" name="archer-tower" class="button" />
+            <ui:Button text="Sword-Tower" parse-escape-sequences="true" display-tooltip-when-elided="true" name="sword-tower" class="button" />
+            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="wizzard-tower" class="button" />
+            <ui:Button text="Delete" parse-escape-sequences="true" display-tooltip-when-elided="true" name="delete" class="button" />
+            <ui:Button text="Upgrade" parse-escape-sequences="true" display-tooltip-when-elided="true" name="upgrade" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

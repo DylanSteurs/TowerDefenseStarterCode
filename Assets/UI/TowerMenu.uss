@@ -1,0 +1,52 @@
+.button {
+    background-color: rgb(0, 163, 26);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    align-self: stretch;
+}
+
+.button:hover {
+    background-color: rgb(186, 39, 0);
+}
+
+.button:active {
+    background-color: rgba(195, 184, 0, 0.76);
+    color: rgb(0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.optiebalk {
+    height: 100%;
+    width: 25%;
+    background-color: rgba(0, 0, 0, 0.52);
+}
+
+.knoppenlijst {
+    height: 75%;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    top: 91px;
+}
