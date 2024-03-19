@@ -55,6 +55,22 @@ public class TowerMenu : MonoBehaviour
         }
     }
 
+    public void SetSite(ConstructionSite site)
+    {
+        selectedSite = site;
+
+        if (selectedSite == null)
+        {
+            root.visible = false;
+            return;
+        }
+        else
+        {
+            root.visible = true;
+            EvaluateMenu();
+        }
+    }
+
 
     void Start()
 
