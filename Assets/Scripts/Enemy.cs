@@ -14,9 +14,17 @@ public class Enemy : MonoBehaviour
     public GameObject target { get; set; }
     private int pathIndex = 1;
 
-    void Start()
+    public void Damage(int damage)
     {
+        // Verlaag de gezondheidswaarde
+        health -= damage;
 
+        // Als de gezondheid kleiner of gelijk is aan nul
+        if (health <= 0)
+        {
+            // Vernietig het game object
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

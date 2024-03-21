@@ -7,7 +7,7 @@ public class ConstructionSite
     public Vector3Int TilePosition { get; set; }
     public Vector3 WorldPosition { get; set; }
     public SiteLevel Level { get; set; }
-    public TowerType TowerType { get; set; }
+    public TowerType? TowerType { get; set; }
     private GameObject tower;
     public ConstructionSite(Vector3Int tilePosition, Vector3 worldPosition)
     {
@@ -34,5 +34,9 @@ public class ConstructionSite
         tower = newTower;
         Level = newLevel;
         TowerType = newType;
+    }
+    public Vector3 GetBuildPosition()
+    {
+        return WorldPosition; // Of een andere berekening voor de bouwpositie
     }
 }

@@ -6,6 +6,7 @@ public enum Path
 }
 public enum TowerType
 {
+    None,
     Archer,
     Sword,
     Wizard

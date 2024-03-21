@@ -35,15 +35,30 @@ public class TowerMenu : MonoBehaviour
                 archerButton.SetEnabled(true);
                 wizardButton.SetEnabled(true);
                 swordButton.SetEnabled(true);
+                updateButton.SetEnabled(false);
+                destroyButton.SetEnabled(false);
                 break;
             case 1:
+                archerButton.SetEnabled(false);
+                wizardButton.SetEnabled(false);
+                swordButton.SetEnabled(false);
+                updateButton.SetEnabled(true);
+                destroyButton.SetEnabled(true);
+                break;
             case 2:
                 // For site levels 1 and 2, enable update and destroy buttons
+                archerButton.SetEnabled(false);
+                wizardButton.SetEnabled(false);
+                swordButton.SetEnabled(false);
                 updateButton.SetEnabled(true);
                 destroyButton.SetEnabled(true);
                 break;
             case 3:
                 // For site level 3, only enable the destroy button
+                archerButton.SetEnabled(false);
+                wizardButton.SetEnabled(false);
+                swordButton.SetEnabled(false);
+                updateButton.SetEnabled(false);
                 destroyButton.SetEnabled(true);
                 break;
             default:
@@ -113,18 +128,34 @@ public class TowerMenu : MonoBehaviour
     }
     private void OnArcherButtonClicked()
     {
+        GameManager.Instance.Build(TowerType.Archer, SiteLevel.lvl1);
     }
     private void OnSwordButtonClicked()
     {
+        GameManager.Instance.Build(TowerType.Sword, SiteLevel.lvl1);
     }
     private void OnWizardButtonClicked()
     {
+        GameManager.Instance.Build(TowerType.Wizard, SiteLevel.lvl1);
     }
     private void OnUpdateButtonClicked()
     {
+        if (selectedSite != null)
+        {
+            SiteLevel newlevel = selectedSite.Level + 1;
+
+            GameManager.Instance.Build(selectedSite.TowerType.Value, newlevel);
+            EvaluateMenu();
+        }
     }
     private void OnDestroyButtonClicked()
     {
+        if (selectedSite == null)
+        {
+            return;
+        }
+        selectedSite.SetTower(null, SiteLevel.Onbebouwd, TowerType.None);
+        EvaluateMenu(); 
     }
     private void OnDestroy()
     {
