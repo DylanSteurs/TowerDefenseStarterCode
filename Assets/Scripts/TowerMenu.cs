@@ -1,11 +1,6 @@
 using UnityEngine;
-
 using UnityEngine.UIElements;
-
-
-
 public class TowerMenu : MonoBehaviour
-
 {
     private ConstructionSite selectedSite;
     private Button archerButton;
@@ -13,241 +8,145 @@ public class TowerMenu : MonoBehaviour
     private Button wizardButton;
     private Button updateButton;
     private Button destroyButton;
-
     private VisualElement root;
     public void EvaluateMenu()
     {
-        // Return if selectedSite equals null
         if (selectedSite == null)
         {
+            // If selectedSite is null, return without enabling any buttons
             return;
         }
 
-        // Get the site level for the selected site
+        // Access the site level property of selectedSite
         int siteLevel = (int)selectedSite.Level;
 
-        // Use the SetEnabled() function on every button
+        // Disable all buttons initially
         archerButton.SetEnabled(false);
-        wizardButton.SetEnabled(false);
         swordButton.SetEnabled(false);
+        wizardButton.SetEnabled(false);
         updateButton.SetEnabled(false);
         destroyButton.SetEnabled(false);
 
-        // Apply logic based on site level using switch statement
+        // Enable buttons based on site level using a switch statement
         switch (siteLevel)
         {
             case 0:
+                // For site level 0, enable archer, wizard, and sword buttons
                 archerButton.SetEnabled(true);
                 wizardButton.SetEnabled(true);
                 swordButton.SetEnabled(true);
                 break;
             case 1:
             case 2:
+                // For site levels 1 and 2, enable update and destroy buttons
                 updateButton.SetEnabled(true);
                 destroyButton.SetEnabled(true);
                 break;
             case 3:
+                // For site level 3, only enable the destroy button
                 destroyButton.SetEnabled(true);
                 break;
             default:
-                // Handle invalid site levels if necessary
+                // Handle any other site levels if necessary
                 break;
         }
     }
-
     public void SetSite(ConstructionSite site)
     {
+        // Assign the site to the selectedSite variable
         selectedSite = site;
 
         if (selectedSite == null)
         {
+            // If the selected site is null, hide the menu and return
             root.visible = false;
             return;
         }
         else
         {
+            // If the selected site is not null, make sure the menu is visible
             root.visible = true;
+
+            // Call the EvaluateMenu method to update button visibility
             EvaluateMenu();
         }
     }
-
-
     void Start()
 
     {
 
         root = GetComponent<UIDocument>().rootVisualElement;
 
-        archerButton = root.Q<Button>("archer-tower");
-
-        swordButton = root.Q<Button>("sword-tower");
-
-        wizardButton = root.Q<Button>("wizard-tower");
-
-        updateButton = root.Q<Button>("upgrade");
-
-        destroyButton = root.Q<Button>("delete");
 
 
+        archerButton = root.Q<Button>("archer-button");
+
+        swordButton = root.Q<Button>("sword-button");
+
+        wizardButton = root.Q<Button>("wizard-button");
+
+        updateButton = root.Q<Button>("upgrade-button");
+
+        destroyButton = root.Q<Button>("delete-button");
 
         if (archerButton != null)
-
         {
-
             archerButton.clicked += OnArcherButtonClicked;
-
         }
-
-
-
         if (swordButton != null)
-
         {
-
             swordButton.clicked += OnSwordButtonClicked;
-
         }
-
-
-
         if (wizardButton != null)
-
         {
-
             wizardButton.clicked += OnWizardButtonClicked;
-
         }
-
-
-
         if (updateButton != null)
-
         {
-
             updateButton.clicked += OnUpdateButtonClicked;
-
         }
-
-
-
         if (destroyButton != null)
-
         {
-
             destroyButton.clicked += OnDestroyButtonClicked;
-
         }
-
-
-
         root.visible = false;
-
     }
-
-
-
     private void OnArcherButtonClicked()
-
     {
-
-
-
     }
-
-
-
     private void OnSwordButtonClicked()
-
     {
-
-
-
     }
-
-
-
     private void OnWizardButtonClicked()
-
     {
-
-
-
     }
-
-
-
     private void OnUpdateButtonClicked()
-
     {
-
-
-
     }
-
-
-
     private void OnDestroyButtonClicked()
-
     {
-
-
-
     }
-
-
-
     private void OnDestroy()
-
     {
-
         if (archerButton != null)
-
         {
-
             archerButton.clicked -= OnArcherButtonClicked;
-
         }
-
-
-
         if (swordButton != null)
-
         {
-
             swordButton.clicked -= OnSwordButtonClicked;
-
         }
-
-
-
         if (wizardButton != null)
-
         {
-
             wizardButton.clicked -= OnWizardButtonClicked;
-
         }
-
-
-
         if (updateButton != null)
-
         {
-
             updateButton.clicked -= OnUpdateButtonClicked;
-
         }
-
-
-
         if (destroyButton != null)
-
         {
-
             destroyButton.clicked -= OnArcherButtonClicked;
-
         }
-
     }
-
 }
