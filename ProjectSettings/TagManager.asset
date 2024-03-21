@@ -45,12 +45,12 @@ TagManager:
   - name: Terrain
     uniqueID: 2532004927
     locked: 0
-  - name: Enemies
-    uniqueID: 1668121015
-    locked: 0
   - name: Foreground
     uniqueID: 4085627503
     locked: 0
   - name: Towers
     uniqueID: 4010122413
+    locked: 0
+  - name: Enemies
+    uniqueID: 1668121015
     locked: 0

@@ -5,7 +5,6 @@ public class Projectile : MonoBehaviour
     public Transform target;
     public float speed;
     public int damage;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,21 +37,16 @@ public class Projectile : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 0.2f)
         {
             // Apply damage to the target
-            DealDamage();
+            Enemy enemy = target.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.Damage(damage);
+            }
 
             // Destroy the projectile
             Destroy(gameObject);
         }
     }
 
-    void DealDamage()
-    {
-        // Check if the target has a collider
-        Collider targetCollider = target.GetComponent<Collider>();
-        if (targetCollider != null)
-        {
-            // Apply damage directly
-            target.SendMessage("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
-        }
-    }
+
 }
