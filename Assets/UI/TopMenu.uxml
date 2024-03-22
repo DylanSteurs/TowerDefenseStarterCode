@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/TopMenu.uss?fileID=7433441132597879392&amp;guid=cc6c6dfe71b7a814898bd8a695f5b2b7&amp;type=3#TopMenu" />
-    <ui:VisualElement class="kader" style="align-self: flex-start; height: 15%;">
-        <ui:Label tabindex="-1" text="Wave:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="wave" class="label" style="font-size: 8px; bottom: 8px;" />
-        <ui:Label tabindex="-1" text="Gate health:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="health" class="label" style="-unity-text-align: upper-left; display: flex; visibility: visible; overflow: visible; right: auto; left: 40px; top: auto; bottom: 22px; font-size: 8px;" />
-        <ui:Label tabindex="-1" text="Credits: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="credits" class="label" style="position: relative; left: 40px; bottom: 25px; width: 20px; font-size: 8px;" />
-        <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="start-button" class="button" />
+    <ui:VisualElement class="kader" style="align-self: flex-start; height: 25%; width: 15%; left: 0;">
+        <ui:Label tabindex="-1" text="Wave:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="wave" class="label" style="font-size: 12px; bottom: 5px; width: 50px;" />
+        <ui:Label tabindex="-1" text="Gate&#10; health:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="health" class="label" style="-unity-text-align: upper-left; display: flex; visibility: visible; overflow: visible; right: auto; left: 0; top: auto; bottom: 4px; font-size: 12px; width: 50px;" />
+        <ui:Label tabindex="-1" text="Credits: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="credits" class="label" style="position: relative; left: 0; bottom: -15px; width: 50px; font-size: 12px; height: 5px;" />
+        <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="start-button" class="button" style="bottom: -25px; width: 50px; height: 35px; font-size: 12px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;" />
     </ui:VisualElement>
 </ui:UXML>

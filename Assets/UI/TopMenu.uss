@@ -1,12 +1,14 @@
 .kader {
     height: 40%;
     width: 35%;
+    align-self: flex-end;
 }
 
 .label {
     white-space: nowrap;
-    height: 1px;
-    width: 60px;
+    height: 5px;
+    width: 100px;
+    -unity-font-style: bold;
 }
 
 .button {

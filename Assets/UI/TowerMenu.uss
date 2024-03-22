@@ -22,6 +22,7 @@
     padding-left: 10px;
     align-self: stretch;
     font-size: 14px;
+    -unity-font-style: bold;
 }
 
 .button:hover {
