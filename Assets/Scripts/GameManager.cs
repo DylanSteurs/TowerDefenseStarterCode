@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         credits = 500;
         health = 10;
         currentWave = 0; // Initialize with 0 to start with the first wave
-        //TopMenu.UpdateTopMenuLabels(credits, health, currentWave + 1); // Update the labels with the correct wave index
+        topMenu.UpdateTopMenuLabels(credits, health, currentWave + 1); // Update the labels with the correct wave index
     }
 
     public int GetCurrentWave()
