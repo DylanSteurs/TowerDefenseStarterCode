@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             // Vernietig het game object
+            GameManager.Instance.AddCredits(points);
             Destroy(gameObject);
         }
     }
@@ -42,6 +43,15 @@ public class Enemy : MonoBehaviour
                 if (target == null)
                 {
                     Destroy(gameObject);
+
+                    if (path == Path.Path1)
+                    {
+                        GameManager.Instance.AttackGate(Path.Path1);
+                    }
+                    else if (path == Path.Path2)
+                    {
+                        GameManager.Instance.AttackGate(Path.Path2);
+                    }
                 }
             }
 

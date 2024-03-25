@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private int wave;
     private int currentWave;
     public TopMenu topMenu;
-    private bool waveActive = false;
     public static GameManager Instance
     {
         get
@@ -33,6 +32,12 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
+    private Dictionary<TowerType, List<int>> towerPrefabCosts = new Dictionary<TowerType, List<int>>()
+    {
+        { TowerType.Archer, new List<int> { 50, 100, 150 } }, // Kosten voor Archer-torens op niveau 0, 1 en 2
+        { TowerType.Sword, new List<int> { 75, 125, 175 } }, // Kosten voor Sword-torens op niveau 0, 1 en 2
+        { TowerType.Wizard, new List<int> { 100, 150, 200 } } // Kosten voor Wizard-torens op niveau 0, 1 en 2
+    };
     public void SelectSite(ConstructionSite site)
     {
         // Onthoud de geselecteerde site
@@ -86,7 +91,8 @@ public class GameManager : MonoBehaviour
         Vector3 buildPosition = selectedSite.GetBuildPosition();
 
         GameObject towerInstance = Instantiate(towerPrefab, buildPosition, Quaternion.identity);
-
+        int towerCost = GetCost(type, level);
+        AddCredits(-towerCost);
         // Configureer de geselecteerde site om de toren in te stellen
         selectedSite.SetTower(towerInstance, level, type); // Voeg level en type toe als
         towerMenu.SetSite(null);
@@ -106,13 +112,42 @@ public class GameManager : MonoBehaviour
     }
     public int GetCredits()
     {
-        // Return het huidige aantal credits
         return credits;
     }
     public void RemoveCredits(int amount)
     {
-        // Verminder credits
         credits -= amount;
         topMenu.SetCreditsLabel("Credits: " + credits);
+    }
+    public void AttackGate(Path path)
+    {
+        if (path == Path.Path1 || path == Path.Path2)
+        {
+            health--;
+        }
+        else
+        {
+            Debug.LogWarning("Unkown path: " + path);
+        }
+    }
+    public void AddCredits(int amount)
+    {
+        credits += amount;
+        topMenu.SetCreditsLabel("Credits: " + credits);
+    }
+    public int GetCost(TowerType type, SiteLevel level, bool selling = false)
+    {
+        int cost = 0;
+
+        if (selling)
+        {
+            cost = towerPrefabCosts[type][(int)level] / 2;
+        }
+        else
+        {
+            cost = towerPrefabCosts[type][(int)level];
+        }
+
+        return cost;
     }
 }

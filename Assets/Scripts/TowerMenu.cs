@@ -19,6 +19,7 @@ public class TowerMenu : MonoBehaviour
 
         // Access the site level property of selectedSite
         int siteLevel = (int)selectedSite.Level;
+        int availableCredits = GameManager.Instance.GetCredits();
 
         // Disable all buttons initially
         archerButton.SetEnabled(false);
