@@ -420,7 +420,7 @@ MonoBehaviour:
   - {fileID: 8647633743013098537, guid: 82361b87525ef1842a7b8061b4b95ddc, type: 3}
   - {fileID: 1908856945677682636, guid: a67adc5c24dd7ef49a896b35c5f676c5, type: 3}
   - {fileID: 5002233400243683866, guid: 5a365049302a94a4fb9a5cabcc968583, type: 3}
-  topMenu: {fileID: 0}
+  topMenu: {fileID: 1842335509}
 --- !u!4 &579661282
 Transform:
   m_ObjectHideFlags: 0
@@ -6040,10 +6040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2b4df7075bfd14a96dcab5aa46c16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveLabel: {fileID: 0}
-  creditsLabel: {fileID: 0}
-  healthLabel: {fileID: 0}
-  startWaveButton: {fileID: 0}
 --- !u!1 &1869446739
 GameObject:
   m_ObjectHideFlags: 0

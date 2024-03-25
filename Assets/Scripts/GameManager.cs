@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour
     }
     private Dictionary<TowerType, List<int>> towerPrefabCosts = new Dictionary<TowerType, List<int>>()
     {
-        { TowerType.Archer, new List<int> { 50, 100, 150 } }, // Kosten voor Archer-torens op niveau 0, 1 en 2
-        { TowerType.Sword, new List<int> { 75, 125, 175 } }, // Kosten voor Sword-torens op niveau 0, 1 en 2
-        { TowerType.Wizard, new List<int> { 100, 150, 200 } } // Kosten voor Wizard-torens op niveau 0, 1 en 2
+        { TowerType.Archer, new List<int> { 35, 70, 140 } }, // Kosten voor Archer-torens op niveau 0, 1 en 2
+        { TowerType.Sword, new List<int> { 60, 135, 185 } }, // Kosten voor Sword-torens op niveau 0, 1 en 2
+        { TowerType.Wizard, new List<int> { 120, 180, 250 } } // Kosten voor Wizard-torens op niveau 0, 1 en 2
     };
     public void SelectSite(ConstructionSite site)
     {
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         towerMenu = TowerMenu.GetComponent<TowerMenu>();
+        StartGame();
     }
     public void Build(TowerType type, SiteLevel level)
     {
@@ -106,10 +107,7 @@ public class GameManager : MonoBehaviour
         topMenu.UpdateTopMenuLabels(credits, health, currentWave + 1); // Update the labels with the correct wave index
     }
 
-    public int GetCurrentWave()
-    {
-        return currentWave - 1; // Geef de huidige golfindex terug
-    }
+ 
     public int GetCredits()
     {
         return credits;

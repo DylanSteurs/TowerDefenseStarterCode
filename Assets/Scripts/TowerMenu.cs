@@ -28,43 +28,32 @@ public class TowerMenu : MonoBehaviour
         updateButton.SetEnabled(false);
         destroyButton.SetEnabled(false);
 
-        // Enable buttons based on site level using a switch statement
-        switch (siteLevel)
+        if (selectedSite.Level == SiteLevel.Onbebouwd)
         {
-            case 0:
-                // For site level 0, enable archer, wizard, and sword buttons
-                archerButton.SetEnabled(true);
-                wizardButton.SetEnabled(true);
-                swordButton.SetEnabled(true);
-                updateButton.SetEnabled(false);
-                destroyButton.SetEnabled(false);
-                break;
-            case 1:
-                archerButton.SetEnabled(false);
-                wizardButton.SetEnabled(false);
-                swordButton.SetEnabled(false);
-                updateButton.SetEnabled(true);
-                destroyButton.SetEnabled(true);
-                break;
-            case 2:
-                // For site levels 1 and 2, enable update and destroy buttons
-                archerButton.SetEnabled(false);
-                wizardButton.SetEnabled(false);
-                swordButton.SetEnabled(false);
-                updateButton.SetEnabled(true);
-                destroyButton.SetEnabled(true);
-                break;
-            case 3:
-                // For site level 3, only enable the destroy button
-                archerButton.SetEnabled(false);
-                wizardButton.SetEnabled(false);
-                swordButton.SetEnabled(false);
-                updateButton.SetEnabled(false);
-                destroyButton.SetEnabled(true);
-                break;
-            default:
-                // Handle any other site levels if necessary
-                break;
+            // Voor Level0: Toon alleen de knoppen voor het bouwen van torens
+            archerButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(TowerType.Archer, selectedSite.Level));
+            swordButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(TowerType.Sword, selectedSite.Level));
+            wizardButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(TowerType.Wizard, selectedSite.Level));
+            updateButton.SetEnabled(false); // De upgrade-knop is niet beschikbaar op niveau 0
+            destroyButton.SetEnabled(false); // De vernietigingsknop is niet beschikbaar op niveau 0
+        }
+        else if (selectedSite.Level < SiteLevel.lvl3)
+        {
+            // Voor Level1 en Level2: Toon de upgrade-knop en alle torenbouwknoppen
+            archerButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(TowerType.Archer, selectedSite.Level));
+            swordButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(TowerType.Sword, selectedSite.Level));
+            wizardButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(TowerType.Wizard, selectedSite.Level));
+            updateButton.SetEnabled(availableCredits >= GameManager.Instance.GetCost(selectedSite.TowerType.Value, selectedSite.Level + 1));
+            destroyButton.SetEnabled(true); // De vernietigingsknop is altijd beschikbaar voor upgradebaar niveau
+        }
+        else if (selectedSite.Level == SiteLevel.lvl3)
+        {
+            // Voor Level3: Toon alleen de vernietigingsknop, upgrade-knop is niet beschikbaar
+            archerButton.SetEnabled(false); // De torenbouwknoppen zijn niet beschikbaar op niveau 3
+            swordButton.SetEnabled(false);
+            wizardButton.SetEnabled(false);
+            updateButton.SetEnabled(false); // De upgrade-knop is niet beschikbaar op niveau 3
+            destroyButton.SetEnabled(true); // De vernietigingsknop is altijd beschikbaar voor niveau 3
         }
     }
     public void SetSite(ConstructionSite site)

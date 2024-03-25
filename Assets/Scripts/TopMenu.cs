@@ -8,7 +8,7 @@ public class TopMenu : MonoBehaviour
     public Label healthlabel;
     public Button startWaveButton;
     private VisualElement root;
-
+        
     public void UpdateTopMenuLabels(int credits, int health, int currentWave)
     {
         Debug.Log("Updating top menu labels: Credits: " + credits + ", Health: " + health + ", Wave: " + currentWave);
