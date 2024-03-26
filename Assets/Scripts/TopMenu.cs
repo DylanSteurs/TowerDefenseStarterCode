@@ -17,6 +17,7 @@ public class TopMenu : MonoBehaviour
     }
     private void Awake()
     {
+
         var root = GetComponent<UIDocument>().rootVisualElement;
         startWaveButton = root.Q<Button>("start-button");
         wavelabel = root.Q<Label>("wavelabel");
