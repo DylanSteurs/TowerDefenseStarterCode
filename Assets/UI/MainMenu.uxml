@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=ab36e869578e3284990ca03b10bf48b3&amp;type=3#MainMenu" />
+    <ui:VisualElement name="mainmenuscreen">
+        <ui:VisualElement name="mainmenu">
+            <ui:VisualElement name="title" style="height: 125px; background-image: url(&apos;project://database/Assets/Art/towerback.png?fileID=2800000&amp;guid=4009cc6fa7802a44a8f72f35cbcc2c95&amp;type=3#towerback&apos;);" />
+            <ui:VisualElement name="menu">
+                <ui:TextField picking-mode="Ignore" label="Player name:" value="Here" name="playername" style="-unity-font-style: bold; color: rgb(255, 255, 255);" />
+                <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="start-button" class="button" />
+                <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="exit-button" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

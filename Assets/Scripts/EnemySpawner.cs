@@ -37,47 +37,35 @@ public class EnemySpawner : MonoBehaviour
         }
     }
     public void StartWave1()
-
     {
 
         ufoCounter++;
 
         // leave some gaps 
-
         if (ufoCounter % 6 <= 1) return;
-
-
-
+        
         if (ufoCounter < 30)
-
         {
-
             SpawnEnemy(0, Path.Path1);
-
         }
+
         else
-
         {
-
             // the last Enemy will be level 2 
-
             SpawnEnemy(1, Path.Path1);
-
         }
+
         if (ufoCounter > 30)
         {
-
             CancelInvoke("StartWave1"); // the reverse of InvokeRepeating 
-
             // depending on your singleton declaration, Get might be somthing else 
-
-            GameManager.Get.EndWave(); // let the gameManager know. 
-
+            GameManager.Instance.EndWave(); // let the gameManager know. 
         }
 
     }
     private void SpawnEnemy(int type, Path path)
     {
+        GameManager.Instance.AddInGameEnemy();
         Vector3 spawnPosition;
         Quaternion spawnRotation;
         if (path == Path.Path1)

@@ -7,7 +7,6 @@ public class TopMenu : MonoBehaviour
     public Label creditslabel;
     public Label healthlabel;
     public Button startWaveButton;
-    private VisualElement root;
         
     public void UpdateTopMenuLabels(int credits, int health, int currentWave)
     {
@@ -16,9 +15,9 @@ public class TopMenu : MonoBehaviour
         healthlabel.text = "Health: " + health;
         wavelabel.text = "Wave: " + currentWave;
     }
-    public void Start()
+    private void Awake()
     {
-        root = GetComponent<UIDocument>().rootVisualElement;
+        var root = GetComponent<UIDocument>().rootVisualElement;
         startWaveButton = root.Q<Button>("start-button");
         wavelabel = root.Q<Label>("wavelabel");
         creditslabel = root.Q<Label>("creditslabel");
@@ -43,6 +42,15 @@ public class TopMenu : MonoBehaviour
     public void SetHealthLabel(string text)
     {
         healthlabel.text = text;
+    }
+    public void WaveButton_clicked()
+    {
+        GameManager.Instance.StartWave();
+        startWaveButton.SetEnabled(true);
+    }
+    public void EnableWaveButton()
+    {
+        startWaveButton.SetEnabled(true);
     }
 
 }
