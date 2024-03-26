@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private int wave;
     private int currentWave;
     public TopMenu topMenu;
+    private bool waveActive = false;
     public static GameManager Instance
     {
         get
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // Stel de startwaarden in
+        
         credits = 500;
         health = 10;
         currentWave = 0; // Initialize with 0 to start with the first wave
@@ -147,5 +149,23 @@ public class GameManager : MonoBehaviour
         }
 
         return cost;
+    }
+    public void StartWave()
+    {
+        if (currentWave == 0 || currentWave > 0)
+        {
+            currentWave++;
+            topMenu.SetWaveLabel("Wave: " + currentWave);
+            waveActive = true;
+        }
+        else
+        {
+            currentWave = 0; // Initialize with 0 to start with the first wave
+            waveActive = true;
+        }
+    }
+    public void EndWave()
+    {
+        waveActive = false;
     }
 }
